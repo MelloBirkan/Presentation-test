@@ -17,9 +17,27 @@ class ViewController: UIViewController {
     }
 
     @IBAction func testPresentation(sender: UIButton) {
-        let nextController = UIImagePickerController()
+        // MARK: Image Picker
+        let ImageController = UIImagePickerController()
         
-        present(nextController, animated: true)
+        // MARK: Activity
+        let image = UIImage()
+        
+        let ActivityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        // MARK: Activity
+        let alertController = UIAlertController()
+        
+        alertController.title = "Test Alert"
+        alertController.message = "This is an Alert!"
+        
+        let okAction = UIAlertAction(title: "OK", style: .cancel) { action in
+            self.dismiss(animated: true)
+        }
+        
+        alertController.addAction(okAction)
+        present(alertController, animated: true)
+        // dismiss(animated: true) dismiss so fast isn't good
     }
 }
 
